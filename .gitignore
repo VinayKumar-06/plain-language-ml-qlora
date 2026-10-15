@@ -1,0 +1,17 @@
+.venv/
+.uv-cache/
+.uv-python/
+.hf-cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env
+outputs/**
+!outputs/.gitkeep
+models/**
+!models/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+*.log
+.DS_Store

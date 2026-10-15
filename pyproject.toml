@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plain-language-ml-qlora"
+version = "0.1.0"
+description = "A reproducible QLoRA lab for plain-language machine-learning explanations"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "accelerate==1.15.0",
+  "datasets==5.1.0",
+  "gradio==6.30.0",
+  "peft==0.21.2",
+  "PyYAML==6.0.3",
+  "torch==2.14.1",
+  "transformers==5.19.0",
+  "trl==1.13.0",
+]
+
+[project.optional-dependencies]
+quantization = ["bitsandbytes==0.50.2"]
+dev = ["pytest==9.0.2", "ruff==0.14.8"]
+model = ["torch==2.14.1", "transformers==5.19.0", "peft==0.21.2"]
+train = [
+  "accelerate==1.15.0",
+  "bitsandbytes==0.50.2",
+  "datasets==5.1.0",
+  "trl==1.13.0",
+  "PyYAML==6.0.3",
+]
+demo = ["gradio==6.30.0", "PyYAML==6.0.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+  "gpu: tests that require an NVIDIA CUDA accelerator and model downloads",
+  "integration: tests that exercise an installed external ML training library",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

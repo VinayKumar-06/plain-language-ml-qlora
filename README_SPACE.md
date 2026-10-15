@@ -1,0 +1,1 @@
+This Gradio app is hosted as a Hugging Face Space. The root `README.md` contains the required Space metadata and setup steps. For adapter-backed inference, configure `ADAPTER_PATH` as a local path available to the Space runtime; do not commit adapter weights to this source repository.
